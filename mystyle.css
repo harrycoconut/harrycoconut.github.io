@@ -13,8 +13,7 @@ p{
 	}
 .line4{
 	font-family:"Brush Script MT" , cursive;
-/*以上為調整字體*/
-		
+	
 #c1{
 	border-radius:15px;
 	
@@ -52,7 +51,6 @@ p{
 	width:150px;
 	height:100px;
 	}	
-/*以上為設置圖片框*/
 	
 a:link {
 	color:green;
@@ -66,7 +64,6 @@ a:hover {
 a:active {
 	color:blue;
 	}
-/*以上為觸發字體效果*/
 
 .style1{
 	border-radius:50px;
@@ -88,7 +85,6 @@ a:active {
 	max-width:100%;
 	height:200px;
 	}
-/*以上為調整圖片外型*/
 	
 img {
 	border-radius:50px;
@@ -103,7 +99,6 @@ img:hover{
 	height: 200px;
 	opacity: 0.4;
 }	
-/*以上為觸發圖片效果*/
 
 	
 body{
@@ -113,4 +108,3 @@ body{
 	background-position:right top;
 	background-attachment:fixed;
 	}
-/*以上為背景圖*/

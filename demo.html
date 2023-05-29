@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>歡迎來到夜城!</title>
+		 <meta charset="UTF-8">
+		 <meta name="author" content="110403545蔡秉成">
+		 <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+     <div style="background-color:#FFE681">
+		 <center>
+			<h1><strong><span style="color:green">CYBERPUNK樂透遊戲</span></strong></h1>
+		 </center>
+	 </div>
+	 <!--註解 以上是標題-->
+	<div>
+    <p>請在下方輸入3個數字（範圍：1~10）：</p>
+    <input type="number" id="number1" min="1" max="10">
+    <input type="number" id="number2" min="1" max="10">
+    <input type="number" id="number3" min="1" max="10">
+    <button onclick="myFunction()">開獎</button>
+    <p id="result"></p>
+	<!--註解 以上是樂透-->
+	<p>一號參賽者:</p>
+	<p id="c1"><a href="./image/david.jpg"><h1 class="line1">David</h1></a></p>
+	<p>二號參賽者:</p>
+	<p id="c2"><a href="./image/lucy.jpg"><h1 class="line2">Lucy</h1></a></p>		
+    <p>三號參賽者:</p>
+	<p id="c3"><a href="./image/maine.jpg"><h1 class="line3">Maine</h1></a></p>	
+	<p>四號參賽者:</p>
+	<p id="c4"><a href="./image/rebecca.jpg"><h1 class="line4">Rebecca</h1></a></p>
+	<a href="https://www.youtube.com/watch?v=6aI4l2oWEH8&ab_channel=BassPunch"target="_blank"><img class="style1" src="./image/david.jpg" alt="david pic"></a>
+	<a href="https://www.youtube.com/watch?v=6aI4l2oWEH8&ab_channel=BassPunch"target="_blank"><img class="style2" src="./image/lucy.jpg" alt="lucy pic"></a>
+	<a href="https://www.youtube.com/watch?v=6aI4l2oWEH8&ab_channel=BassPunch"target="_blank"><img class="style3" src="./image/maine.jpg" alt="maine pic"> </a>
+	<a href="https://www.youtube.com/watch?v=6aI4l2oWEH8&ab_channel=BassPunch"target="_blank"><img class="style4" src="./image/rebecca.jpg" alt="rebecca pic"></a>
+	</div>
+	<!--註解 以上是玩家介紹-->
+</body>
+    <!--註解 以下利用js做出樂透功能-->
+    <script>
+        function myFunction() {
+            var userInput = [];
+            var winningNumbers = [];
+
+            <!-- 獲取玩家輸入的數字-->
+            userInput.push(parseInt(document.getElementById("number1").value));
+            userInput.push(parseInt(document.getElementById("number2").value));
+            userInput.push(parseInt(document.getElementById("number3").value));
+
+            <!-- 生成得獎號碼-->
+            while (winningNumbers.length < 3) {
+                var randomNumber = Math.floor(Math.random() * 10) + 1;
+                if (!winningNumbers.includes(randomNumber)) {
+                    winningNumbers.push(randomNumber);
+                }
+            }
+
+            <!--比對號碼-->
+            var matchedNumbers = [];
+            for (var i = 0; i < userInput.length; i++) {
+                if (winningNumbers.includes(userInput[i])) {
+                    matchedNumbers.push(userInput[i]);
+                }
+            }
+
+            <!--判斷中獎等級-->
+            var prizeLevel;
+            var prizeAmount;
+            if (matchedNumbers.length === 3) {
+                prizeLevel = "頭獎";
+                prizeAmount = 10000; <!--頭獎獎金金額10000元-->
+            } else if (matchedNumbers.length === 2) {
+                prizeLevel = "貳獎";
+                prizeAmount = 500; <!--貳獎獎金金額500元-->
+            } else if (matchedNumbers.length === 1) {
+                prizeLevel = "參獎";
+                prizeAmount = 200; <!--參獎獎金金額200元-->
+            } else {
+                prizeLevel = "偏爛，沒中獎";
+                prizeAmount = 0;
+            }
+
+            // 顯示結果
+            var resultElement = document.getElementById("result");
+            resultElement.innerHTML = "中獎結果: " + prizeLevel + "<br>";
+            resultElement.innerHTML += "中獎獎金: $" + prizeAmount;
+			
+			
+        }
+    </script>
+</html>
